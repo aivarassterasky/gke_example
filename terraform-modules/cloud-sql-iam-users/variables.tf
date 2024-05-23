@@ -6,24 +6,24 @@ variable "project" {
 
 variable "users" {
   description = <<EOF
-    <user> = {
-        email = "<user email>"
+    {user} = {
+        email = "{user email}"
         roles = ["roles/cloudsql.client","roles/cloudsql.instanceUser"]
         grants = [{
-            database = "<database name>"
+            database = "{database name}"
             permissions = ["SELECT", "INSERT", "UPDATE", "DELETE", "CREATE", "ALTER", "INDEX", "LOCK TABLES", "CREATE VIEW", "SHOW VIEW", "TRIGGER", "REFERENCES", "EVENT", "EXECUTE"] 
         },
         {
-            database = "<another database name>"
+            database = "{another database name}"
             permissions = ["SELECT"] 
         }] 
     },
-    <another user> = {
-        email = "<user email>"
+    {another user} = {
+        email = "{user email}"
         roles = ["roles/cloudsql.client","roles/cloudsql.instanceUser"]
         grants = [{
-            database = "<database name>"
-            permissions = [<list of permissions>] 
+            database = "{database name}"
+            permissions = [{list of permissions}] 
         },      
     }
   EOF

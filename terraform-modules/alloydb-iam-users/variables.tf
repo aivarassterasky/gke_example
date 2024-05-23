@@ -24,31 +24,31 @@ GRANTS:
 - objects - (Optional) The objects upon which to grant the privileges. An empty list (the default) means to grant permissions on all objects of the specified type. You cannot specify this option if the object_type is database or schema. When object_type is column, only one value is allowed.
  More info https://registry.terraform.io/providers/cyrilgdn/postgresql/latest/docs/resources/postgresql_grant#objects
 Example"
-    "<user>" = {
-        email = "<user email>"
+    "{user}" = {
+        email = "{user email}"
         roles = ["roles/alloydb.databaseUser","roles/serviceusage.serviceUsageConsumer"]
         grants = [{
-            database = "<database name>""
-            role = "aivaras.s@terasky.com"
+            database = "{database name}"
+            role = "{user email}"
             schema = "public"
             object_type = "database"
             privileges = ["CONNECT"] 
         },
         {
             database = "testas"
-            role = "aivaras.s@terasky.com"
+            role = "{user email}"
             schema = "public"
             object_type = "table"
             objects = ["cars"]
             privileges = ["SELECT", "INSERT", "UPDATE", "DELETE", "TRUNCATE", "REFERENCES", "TRIGGER"] 
         }]
     },
-    "<another user>" = {
-        email = "<user email>"
+    "{another user}" = {
+        email = "{user email}"
         roles = ["roles/alloydb.databaseUser","roles/serviceusage.serviceUsageConsumer"]
         grants = [{
-            database = "<database name>""
-            role = "<user email>"
+            database = "{database name}"
+            role = "{user email}"
             schema = "public"
             object_type = "database"
             privileges = ["CONNECT"] 
